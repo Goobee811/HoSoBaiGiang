@@ -1,5 +1,5 @@
 # PHẦN 1 — CHƯƠNG TRÌNH MÔN HỌC THỰC HÀNH LÁI XE
-## Hạng B và hạng C1
+### Hạng B và hạng C1
 
 > **Bản nháp Bước 2** · Truy vết: mục 1.1–1.7 của `01_bang_doi_chieu.md`
 > Căn cứ chính: Luật 36/2024/QH15 · NĐ 160/2024/NĐ-CP · TT 14/2025/TT-BXD · **TT 17/2026/TT-BXD (áp dụng từ 01/7/2026)**

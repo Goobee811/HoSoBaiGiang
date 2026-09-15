@@ -1,5 +1,5 @@
 # PHẦN 2 — QUY TRÌNH SÁT HẠCH CẤP GIẤY PHÉP LÁI XE
-## Hạng B và hạng C1
+### Hạng B và hạng C1
 
 > **Bản nháp Bước 2** · Truy vết: mục 2.1–2.10 và H.1 của `01_bang_doi_chieu.md`
 > Căn cứ chính: **Thông tư 108/2026/TT-BCA** (Bộ Công an, ban hành 29/6/2026, hiệu lực 01/7/2026, **thay thế toàn bộ TT 12/2025/TT-BCA**)

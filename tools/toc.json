@@ -1,0 +1,487 @@
+[
+{
+"level": 2,
+"text": "HƯỚNG DẪN SỬ DỤNG TÀI LIỆU",
+"page": 2
+},
+{
+"level": 2,
+"text": "HỆ THỐNG HỘP THÔNG TIN",
+"page": 2
+},
+{
+"level": 2,
+"text": "HỆ THỐNG NHÃN TRUY VẾT NGUỒN",
+"page": 2
+},
+{
+"level": 2,
+"text": "CĂN CỨ PHÁP LÝ ÁP DỤNG",
+"page": 3
+},
+{
+"level": 1,
+"text": "PHẦN 1 — CHƯƠNG TRÌNH MÔN HỌC THỰC HÀNH LÁI XE",
+"page": 7
+},
+{
+"level": 2,
+"text": "I. MỤC TIÊU MÔN HỌC",
+"page": 7
+},
+{
+"level": 2,
+"text": "II. HỌC VIÊN CẦN BIẾT TRƯỚC: BẠN ĐANG HỌC HẠNG NÀO?",
+"page": 7
+},
+{
+"level": 2,
+"text": "III. NỘI DUNG CHƯƠNG TRÌNH ĐÀO TẠO",
+"page": 9
+},
+{
+"level": 2,
+"text": "IV. NHỮNG THAY ĐỔI KHÁC VỀ NỘI DUNG ĐÀO TẠO TỪ 01/7/2026",
+"page": 10
+},
+{
+"level": 2,
+"text": "V. ĐIỀU KIỆN ĐƯỢC DỰ KIỂM TRA HOÀN THÀNH KHOÁ ĐÀO TẠO",
+"page": 11
+},
+{
+"level": 2,
+"text": "VI. VỊ TRÍ MÔN HỌC",
+"page": 12
+},
+{
+"level": 2,
+"text": "VII. CẤU TRÚC 7 BÀI THỰC HÀNH TRONG HỒ SƠ NÀY",
+"page": 12
+},
+{
+"level": 2,
+"text": "CĂN CỨ PHÁP LÝ CỦA PHẦN 1",
+"page": 12
+},
+{
+"level": 1,
+"text": "PHẦN 2 — QUY TRÌNH SÁT HẠCH CẤP GIẤY PHÉP LÁI XE",
+"page": 14
+},
+{
+"level": 2,
+"text": "I. TOÀN CẢNH: KỲ SÁT HẠCH GỒM 3 PHẦN",
+"page": 14
+},
+{
+"level": 2,
+"text": "II. PHẦN 1 — SÁT HẠCH LÝ THUYẾT",
+"page": 15
+},
+{
+"level": 2,
+"text": "III. PHẦN 2 — SÁT HẠCH THỰC HÀNH LÁI XE TRONG HÌNH (SA HÌNH)",
+"page": 16
+},
+{
+"level": 2,
+"text": "IV. PHẦN 3 — SÁT HẠCH THỰC HÀNH LÁI XE TRÊN ĐƯỜNG",
+"page": 18
+},
+{
+"level": 2,
+"text": "V. SAU KHI ĐẠT: CẤP GIẤY PHÉP LÁI XE",
+"page": 18
+},
+{
+"level": 2,
+"text": "VI. TÓM TẮT NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI HỒ SƠ CŨ",
+"page": 19
+},
+{
+"level": 2,
+"text": "CĂN CỨ PHÁP LÝ CỦA PHẦN 2",
+"page": 19
+},
+{
+"level": 1,
+"text": "PHẦN 3 — QUY ĐỊNH CHẠY DAT",
+"page": 20
+},
+{
+"level": 2,
+"text": "I. DAT LÀ GÌ?",
+"page": 20
+},
+{
+"level": 2,
+"text": "II. VÌ SAO DAT QUAN TRỌNG HƠN TRƯỚC?",
+"page": 20
+},
+{
+"level": 2,
+"text": "III. ĐIỀU KIỆN VỀ DAT ĐỂ ĐƯỢC XÉT HOÀN THÀNH KHOÁ ĐÀO TẠO",
+"page": 21
+},
+{
+"level": 2,
+"text": "IV. SỐ KM VÀ SỐ GIỜ DAT THEO TỪNG HẠNG",
+"page": 21
+},
+{
+"level": 2,
+"text": "V. TẠI SAO CÁC BẢNG TRÊN CÒN NHIỀU Ô [CẦN KIỂM CHỨNG]?",
+"page": 22
+},
+{
+"level": 2,
+"text": "VI. HƯỚNG DẪN THỰC TẾ CHO HỌC VIÊN KHI CHẠY DAT",
+"page": 23
+},
+{
+"level": 2,
+"text": "CĂN CỨ PHÁP LÝ CỦA PHẦN 3",
+"page": 25
+},
+{
+"level": 1,
+"text": "BÀI 1 — TẬP LÁI XE TẠI CHỖ SỐ NGUỘI",
+"page": 26
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 26
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 26
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 27
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN — 8 BƯỚC",
+"page": 28
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 36
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 36
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 37
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 37
+},
+{
+"level": 1,
+"text": "BÀI 2 — DỪNG VÀ KHỞI HÀNH XE NGANG DỐC",
+"page": 39
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 39
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 39
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 40
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN",
+"page": 41
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 46
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 46
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 47
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 48
+},
+{
+"level": 1,
+"text": "BÀI 3 — LÁI XE QUA VỆT BÁNH XE VÀ ĐƯỜNG VÒNG VUÔNG GÓC",
+"page": 49
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 49
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 49
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 50
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN — 5 BƯỚC",
+"page": 51
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 53
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 53
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 54
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 54
+},
+{
+"level": 1,
+"text": "BÀI 4 — ĐƯỜNG VÒNG QUANH CO",
+"page": 56
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 56
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 56
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 56
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN — 5 BƯỚC",
+"page": 59
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 62
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 62
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 63
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 63
+},
+{
+"level": 1,
+"text": "BÀI 5 — GHÉP XE VÀO NƠI ĐỖ DỌC",
+"page": 65
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 65
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 65
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 66
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN — 6 BƯỚC",
+"page": 68
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 70
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 70
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 71
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 71
+},
+{
+"level": 1,
+"text": "BÀI 6 — GHÉP XE VÀO NƠI ĐỖ NGANG",
+"page": 73
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 73
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 73
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 74
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN — 4 BƯỚC",
+"page": 75
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 79
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 79
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 80
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 81
+},
+{
+"level": 1,
+"text": "BÀI 7 — BÀI THI ĐƯỜNG TRƯỜNG",
+"page": 82
+},
+{
+"level": 2,
+"text": "01. MỤC TIÊU BÀI HỌC",
+"page": 82
+},
+{
+"level": 2,
+"text": "02. CHUẨN BỊ",
+"page": 83
+},
+{
+"level": 2,
+"text": "03. NỘI DUNG BÀI HỌC",
+"page": 83
+},
+{
+"level": 2,
+"text": "04. QUY TRÌNH THỰC HIỆN",
+"page": 84
+},
+{
+"level": 2,
+"text": "05. ĐIỂM CẦN LƯU Ý",
+"page": 87
+},
+{
+"level": 2,
+"text": "06. LỖI THƯỜNG GẶP",
+"page": 87
+},
+{
+"level": 2,
+"text": "07. TIÊU CHÍ HOÀN THÀNH",
+"page": 88
+},
+{
+"level": 2,
+"text": "08. PHIẾU TỰ KIỂM TRA",
+"page": 88
+},
+{
+"level": 2,
+"text": "CĂN CỨ PHÁP LÝ CỦA BÀI 7",
+"page": 89
+},
+{
+"level": 1,
+"text": "PHỤ LỤC A — DANH MỤC NỘI DUNG CẦN XÁC MINH",
+"page": 90
+},
+{
+"level": 2,
+"text": "D. DANH MỤC ĐẦY ĐỦ [CẦN KIỂM CHỨNG] — 49 MỤC",
+"page": 90
+},
+{
+"level": 2,
+"text": "E. DANH MỤC [CẦN RÀ SOÁT] — 16 MỤC CẦN GIÁO VIÊN XÁC NHẬN",
+"page": 91
+},
+{
+"level": 2,
+"text": "B. BẢNG THUẬT NGỮ THỐNG NHẤT TOÀN HỒ SƠ",
+"page": 92
+}
+]
