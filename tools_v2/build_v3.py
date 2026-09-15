@@ -145,7 +145,7 @@ sec = doc.sections[0]
 sec.page_width, sec.page_height = Cm(21), Cm(29.7)
 sec.top_margin = sec.bottom_margin = Cm(2.0)
 sec.left_margin, sec.right_margin = Cm(3.0), Cm(1.5)
-sec.header_distance, sec.footer_distance = Cm(1.25), Cm(1.25)
+sec.header_distance, sec.footer_distance = Cm(1.1), Cm(1.0)
 
 st = doc.styles['Normal']
 st.font.name = FONT; st.font.size = Pt(BODY)
@@ -370,21 +370,68 @@ _prev = _toc_anchor._p
 for _tp in _made + [_endp]:
     _prev.addnext(_tp._p); _prev = _tp._p
 
-# ───────── footer "Trang N" ─────────
+# ───────── header / footer (bố cục như bản v1) ─────────
+GREY = '595959'
+HDR_TEXT = 'HỒ SƠ BÀI GIẢNG THỰC HÀNH LÁI XE Ô TÔ  |  CÁC HẠNG B, C1, C, D, E'
+VERSION = 'Bản v3'
+UPDATED = 'Tháng 9/2026'
+UNIT = 'Đào tạo lái xe ô tô'
+
+
+def _rule(par, edge, color=GREY, sz=6, space='2'):
+    pPr = par._p.get_or_add_pPr()
+    b = OxmlElement('w:pBdr')
+    b.append(_el('w:' + edge, **{'w:val': 'single', 'w:sz': sz,
+                                 'w:space': space, 'w:color': color}))
+    pPr.append(b)
+
+
+def _grey(run, size, bold=False):
+    setfont(run, size, bold=bold)
+    run.font.color.rgb = RGBColor(0x59, 0x59, 0x59)
+
+
+def _field(par, instr):
+    a = par.add_run(); a._r.append(_el('w:fldChar', **{'w:fldCharType': 'begin'}))
+    b = par.add_run()
+    it = OxmlElement('w:instrText'); it.set(qn('xml:space'), 'preserve'); it.text = instr
+    b._r.append(it)
+    c = par.add_run(); c._r.append(_el('w:fldChar', **{'w:fldCharType': 'separate'}))
+    d = par.add_run('1')
+    e = par.add_run(); e._r.append(_el('w:fldChar', **{'w:fldCharType': 'end'}))
+    return [a, b, c, d, e]
+
+
+hp = sec.header.paragraphs[0]
+hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+hp.paragraph_format.space_before = Pt(0)
+hp.paragraph_format.space_after = Pt(2)
+hp.paragraph_format.line_spacing = 1.0
+_grey(hp.add_run(HDR_TEXT), 9, bold=True)
+_rule(hp, 'bottom')
+
 fp = sec.footer.paragraphs[0]
-fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-fp.paragraph_format.space_before = Pt(0); fp.paragraph_format.space_after = Pt(0)
-setfont(fp.add_run('Trang '), BODY)
-r1 = fp.add_run(); r1._r.append(_el('w:fldChar', **{'w:fldCharType': 'begin'}))
-r2 = fp.add_run()
-it = OxmlElement('w:instrText'); it.set(qn('xml:space'), 'preserve')
-it.text = r' PAGE   \* MERGEFORMAT '
-r2._r.append(it)
-r3 = fp.add_run(); r3._r.append(_el('w:fldChar', **{'w:fldCharType': 'separate'}))
-r4 = fp.add_run('1')
-r5 = fp.add_run(); r5._r.append(_el('w:fldChar', **{'w:fldCharType': 'end'}))
-for r in (r1, r2, r3, r4, r5):
-    setfont(r, BODY)
+fp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+fp.paragraph_format.space_before = Pt(0)
+fp.paragraph_format.space_after = Pt(0)
+fp.paragraph_format.line_spacing = 1.0
+_rule(fp, 'top', space='4')
+pPr = fp._p.get_or_add_pPr()
+tabs = OxmlElement('w:tabs')
+tabs.append(_el('w:tab', **{'w:val': 'center', 'w:pos': '4536'}))
+tabs.append(_el('w:tab', **{'w:val': 'right', 'w:pos': '9072'}))
+pPr.append(tabs)
+
+_grey(fp.add_run('%s — %s' % (VERSION, UPDATED)), 9)
+fp.add_run('\t')
+setfont(fp.add_run('Trang '), 10, bold=True)
+for _r in _field(fp, r' PAGE \* MERGEFORMAT '):
+    setfont(_r, 10, bold=True)
+_grey(fp.add_run(' / '), 10)
+for _r in _field(fp, r' NUMPAGES \* MERGEFORMAT '):
+    _grey(_r, 10)
+fp.add_run('\t')
+_grey(fp.add_run(UNIT), 9)
 
 doc.settings.element.append(_el('w:updateFields', **{'w:val': 'true'}))
 doc.save(OUT)
