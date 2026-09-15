@@ -226,12 +226,190 @@ def render_table(rows):
     sp.paragraph_format.space_before = Pt(0); sp.paragraph_format.space_after = Pt(0)
     setfont(sp.add_run(''), 4)
 
+
+# ───────── TRANG BÌA ─────────
+INDIGO = (0x2B, 0x16, 0x63)
+BLUE   = (0x0A, 0x6F, 0xC2)
+TINT   = 'EDF2FA'
+GREY2  = '595959'
+
+SCHOOL_MINISTRY = 'BỘ GIAO THÔNG VẬN TẢI'
+SCHOOL_NAME     = 'TRƯỜNG CAO ĐẲNG NGHỀ GIAO THÔNG VẬN TẢI TRUNG ƯƠNG III'
+DOC_TITLE       = 'HỒ SƠ BÀI GIẢNG'
+DOC_SUBTITLE    = 'THỰC HÀNH LÁI XE Ô TÔ'
+CLASS_LINE      = 'CÁC HẠNG  B  ·  C1  ·  C  ·  D  ·  E'
+TEACHER         = 'Thầy TRẦN THANH HẢI'
+PHONE           = '0903.785.483 (Zalo)'
+YEAR            = '2026'
+LEGAL_LINE      = ('Biên soạn theo Luật 36/2024/QH15  ·  Thông tư 17/2026/TT-BXD  ·  '
+                   'Thông tư 108/2026/TT-BCA')
+
+
+def _colorrun(run, size, rgb, bold=False, italic=False, spacing=None, caps=False):
+    setfont(run, size, bold=bold, italic=italic)
+    run.font.color.rgb = RGBColor(*rgb) if isinstance(rgb, tuple) else RGBColor.from_string(rgb)
+    rPr = run._r.get_or_add_rPr()
+    if spacing:
+        rPr.append(_el('w:spacing', **{'w:val': spacing}))
+    if caps:
+        rPr.append(_el('w:caps', **{'w:val': 'true'}))
+
+
+def _band(fill, pts):
+    t = doc.add_table(rows=1, cols=1)
+    t.alignment = WD_TABLE_ALIGNMENT.CENTER
+    autofit(t)
+    b = OxmlElement('w:tblBorders')
+    for e in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+        b.append(_el('w:' + e, **{'w:val': 'none', 'w:sz': 0, 'w:space': '0', 'w:color': 'auto'}))
+    t._tbl.tblPr.append(b)
+    m = OxmlElement('w:tblCellMar')
+    for n in ('top', 'start', 'bottom', 'end'):
+        m.append(_el('w:' + n, **{'w:w': 0, 'w:type': 'dxa'}))
+    t._tbl.tblPr.append(m)
+    c = t.cell(0, 0)
+    c._tc.get_or_add_tcPr().append(
+        _el('w:shd', **{'w:val': 'clear', 'w:color': 'auto', 'w:fill': fill}))
+    p = c.paragraphs[0]
+    p.paragraph_format.space_before = Pt(0); p.paragraph_format.space_after = Pt(0)
+    p.paragraph_format.line_spacing = 1.0
+    setfont(p.add_run(' '), pts)
+    return t
+
+
+def _line(text, size, rgb, bold=False, italic=False, before=0, after=0,
+          spacing=None, align=WD_ALIGN_PARAGRAPH.CENTER):
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.alignment = align
+    pf.space_before = Pt(before); pf.space_after = Pt(after)
+    pf.line_spacing = 1.0
+    _colorrun(p.add_run(text), size, rgb, bold=bold, italic=italic, spacing=spacing)
+    return p
+
+
+def build_cover():
+    _band('2B1663', 7)
+    _line(SCHOOL_MINISTRY, 11, GREY2, bold=True, before=20, after=4, spacing=40)
+    _line(SCHOOL_NAME, 12.5, INDIGO, bold=True, after=6)
+
+    # gạch ngắn thay cho dãy dấu gạch của bản cũ
+    rp = doc.add_paragraph()
+    rp.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    rp.paragraph_format.space_before = Pt(0); rp.paragraph_format.space_after = Pt(0)
+    rp.paragraph_format.left_indent = Cm(6.3); rp.paragraph_format.right_indent = Cm(6.3)
+    _pPr = rp._p.get_or_add_pPr()
+    _bb = OxmlElement('w:pBdr')
+    _bb.append(_el('w:bottom', **{'w:val': 'single', 'w:sz': 10,
+                                  'w:space': '0', 'w:color': '0A6FC2'}))
+    _pPr.append(_bb)
+    setfont(rp.add_run(' '), 2)
+
+    lp = doc.add_paragraph()
+    lp.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    lp.paragraph_format.space_before = Pt(16); lp.paragraph_format.space_after = Pt(0)
+    _logo = os.path.join(MEDIA, 'logo_truong.jpeg')
+    if os.path.exists(_logo):
+        _s = int(Cm(3.1))
+        add_img(doc, lp, 'logo_truong.jpeg')
+        # chỉnh lại kích thước logo cho vừa bìa
+        for _ext in lp._p.iter(qn('wp:extent')):
+            _ext.set('cx', str(_s)); _ext.set('cy', str(_s))
+        for _ext in lp._p.iter(qn('a:ext')):
+            _ext.set('cx', str(_s)); _ext.set('cy', str(_s))
+
+    # khối tiêu đề trên nền nhạt
+    t = doc.add_table(rows=1, cols=1)
+    t.alignment = WD_TABLE_ALIGNMENT.CENTER
+    autofit(t)
+    bd = OxmlElement('w:tblBorders')
+    bd.append(_el('w:top', **{'w:val': 'single', 'w:sz': 18, 'w:space': '0', 'w:color': '0A6FC2'}))
+    bd.append(_el('w:bottom', **{'w:val': 'single', 'w:sz': 18, 'w:space': '0', 'w:color': '0A6FC2'}))
+    for e in ('left', 'right', 'insideH', 'insideV'):
+        bd.append(_el('w:' + e, **{'w:val': 'none', 'w:sz': 0, 'w:space': '0', 'w:color': 'auto'}))
+    t._tbl.tblPr.append(bd)
+    cellmar(t)
+    c = t.cell(0, 0)
+    c._tc.get_or_add_tcPr().append(
+        _el('w:shd', **{'w:val': 'clear', 'w:color': 'auto', 'w:fill': TINT}))
+    p0 = c.paragraphs[0]
+    p0.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p0.paragraph_format.space_before = Pt(18); p0.paragraph_format.space_after = Pt(2)
+    p0.paragraph_format.line_spacing = 1.0
+    _colorrun(p0.add_run(DOC_TITLE), 30, INDIGO, bold=True, spacing=30)
+    p1 = c.add_paragraph()
+    p1.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p1.paragraph_format.space_before = Pt(0); p1.paragraph_format.space_after = Pt(18)
+    p1.paragraph_format.line_spacing = 1.0
+    _colorrun(p1.add_run(DOC_SUBTITLE), 19, BLUE, bold=True, spacing=16)
+
+    _line(CLASS_LINE, 13, INDIGO, bold=True, before=14, after=0, spacing=24)
+
+    # ảnh xe tập lái
+    ip = doc.add_paragraph()
+    ip.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    ip.paragraph_format.space_before = Pt(18); ip.paragraph_format.space_after = Pt(0)
+    add_img(doc, ip, 'image3.jpeg')
+    _w = int(Cm(12.4)); _h = int(_w * 2.67 / 4.27)
+    for _ext in ip._p.iter(qn('wp:extent')):
+        _ext.set('cx', str(_w)); _ext.set('cy', str(_h))
+    for _ext in ip._p.iter(qn('a:ext')):
+        _ext.set('cx', str(_w)); _ext.set('cy', str(_h))
+
+    # khối thông tin
+    it = doc.add_table(rows=3, cols=2)
+    it.alignment = WD_TABLE_ALIGNMENT.CENTER
+    bd2 = OxmlElement('w:tblBorders')
+    for e in ('top', 'left', 'bottom', 'right', 'insideV'):
+        bd2.append(_el('w:' + e, **{'w:val': 'none', 'w:sz': 0, 'w:space': '0', 'w:color': 'auto'}))
+    bd2.append(_el('w:insideH', **{'w:val': 'single', 'w:sz': 4, 'w:space': '0', 'w:color': 'D5DEEA'}))
+    it._tbl.tblPr.append(bd2)
+    cellmar(it)
+    rows = [('Môn học', 'Thực hành lái xe ô tô'),
+            ('Giáo viên thực hành', '%s\n%s' % (TEACHER, PHONE)),
+            ('Năm biên soạn', YEAR)]
+    for i, (k, v) in enumerate(rows):
+        c0, c1 = it.cell(i, 0), it.cell(i, 1)
+        p = c0.paragraphs[0]
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        p.paragraph_format.space_before = Pt(5); p.paragraph_format.space_after = Pt(5)
+        p.paragraph_format.line_spacing = 1.0
+        _colorrun(p.add_run(k), 11, GREY2)
+        p = c1.paragraphs[0]
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        p.paragraph_format.space_before = Pt(6); p.paragraph_format.space_after = Pt(6)
+        p.paragraph_format.line_spacing = 1.0
+        for _n, _piece in enumerate(v.split('\n')):
+            if _n:
+                p.add_run().add_break()
+            _colorrun(p.add_run(_piece), 12, INDIGO, bold=True)
+    for r in it.rows:
+        r.cells[0].width = Cm(5.2); r.cells[1].width = Cm(10.3)
+
+    _line(LEGAL_LINE, 9, GREY2, italic=True, before=18, after=10)
+    _band('0A6FC2', 7)
+
+
+COVER_ONLY = os.environ.get('COVER_ONLY') == '1'
+WITH_COVER = os.environ.get('NO_COVER') != '1'
+
+if WITH_COVER:
+    build_cover()
+    if COVER_ONLY:
+        OUT = os.path.join(REPO, 'HSBG_Bia_v2.docx')
+
 # ───────── MỤC LỤC ─────────
 TOCLIST = []
 _tocf = os.path.join(WORK, 'toc_v3.json')
 if os.path.exists(_tocf):
     TOCLIST = json.load(open(_tocf, encoding='utf8'))
 
+if COVER_ONLY:
+    doc.save(OUT)
+    print('ĐÃ TẠO:', os.path.basename(OUT), os.path.getsize(OUT) // 1024, 'KB')
+    raise SystemExit(0)
+
+page_break()
 _t = doc.add_paragraph(style='Heading 1')
 runs(_t, 'MỤC LỤC', bold=True, size=H1)
 
@@ -402,6 +580,9 @@ def _field(par, instr):
     return [a, b, c, d, e]
 
 
+if WITH_COVER:
+    sec.different_first_page_header_footer = True
+
 hp = sec.header.paragraphs[0]
 hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
 hp.paragraph_format.space_before = Pt(0)
@@ -432,6 +613,11 @@ for _r in _field(fp, r' NUMPAGES \* MERGEFORMAT '):
     _grey(_r, 10)
 fp.add_run('\t')
 _grey(fp.add_run(UNIT), 9)
+
+if WITH_COVER:
+    for _pp in list(sec.first_page_header.paragraphs) + list(sec.first_page_footer.paragraphs):
+        for _rr in list(_pp.runs):
+            _rr._r.getparent().remove(_rr._r)
 
 doc.settings.element.append(_el('w:updateFields', **{'w:val': 'true'}))
 doc.save(OUT)
