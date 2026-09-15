@@ -7,7 +7,7 @@
 | **Quy mô** | 457 đoạn văn · 11 bảng · 37 tệp hình (34 vị trí chèn) · 2 section |
 | **Định dạng gốc** | Khổ A4 (11909×16834 twips), lề T/B 1134 – L 1701 – R 851; footer "Trang N"; header rỗng; **không có trang bìa, không có mục lục, chỉ dùng style Heading 1 cho tên bài** |
 | **Ngày lập bảng** | 15/09/2026 |
-| **Trạng thái** | ⏸ **CHỜ DUYỆT** — chưa viết bất kỳ nội dung mới nào |
+| **Trạng thái** | ✅ **ĐÃ DUYỆT 15/09/2026** — xem Phần H (Nhật ký quyết định). Bước 2 đang triển khai. |
 
 ---
 
@@ -318,8 +318,31 @@ Các lỗi sau **không làm thay đổi nội dung chuyên môn**, tôi sẽ s�
 
 ---
 
-> ## ⏸ DỪNG LẠI — CHỜ DUYỆT
+---
+
+## PHẦN H — NHẬT KÝ QUYẾT ĐỊNH (chốt ngày 15/09/2026)
+
+Mọi thay đổi ở Bước 2–5 phải truy vết được về bảng này (CLAUDE.md §6.3).
+
+| Mã | Vấn đề | Quyết định của chủ hồ sơ | Hệ quả thi hành |
+|---|---|---|---|
+| **H.1** | Mục "2. Thi mô phỏng" (§P29–P31) | ⚫ **XÓA HẲN** khỏi hồ sơ | Bỏ toàn bộ §P29–P31. Không để lại hộp ghi chú. Phần 2 chỉ còn **3 phần thi: Lý thuyết → Trong hình → Trên đường**. Cũng rà và bỏ mọi tham chiếu gián tiếp tới thi mô phỏng ở các bài khác. |
+| **H.2** | Nội dung layout 8 block mà bản gốc không có | 🔵 **SOẠN ĐẦY ĐỦ CẢ 4 NHÓM** | Soạn mới: (a) block "02. CHUẨN BỊ" cho cả 7 bài; (b) bảng "Lỗi thường gặp" cho Bài 1 và Bài 7; (c) block "07. TIÊU CHÍ HOÀN THÀNH" cho Bài 2–7; (d) kích thước hình tập Bài 6. **Bắt buộc gắn nhãn nguồn** theo CLAUDE.md §15 — xem quy ước nhãn bên dưới. |
+| **H.3** | Ba lỗi nội tại của bản gốc | ⚠️ **SỬA HẾT** | (1) §P86 "Gồm 7 bước" → **"Gồm 8 bước"**. (2) §P320 Bqc tính lại theo đúng b = 1,67 m: **Bqc = 1,67 × 2,2 = 3,674 m** → kéo theo RTr = 5,7 − 3,674 = **2,026 m**, Sqc = 5,7 + 2,026 = **7,726 m**. (3) §TBL10 và §TBL11 dòng 3: suy luận và điền lại đúng cột Nguyên nhân / Biện pháp khắc phục. Mọi giá trị tính lại đều **ghi chú rõ số gốc** để đối chiếu. |
+| **H.4** | Thời điểm chạy Bước 2 | ▶️ **CHẠY NGAY**, không chờ phụ lục | Số liệu chưa đối chiếu được toàn văn phụ lục giữ nhãn `[CẦN KIỂM CHỨNG]` (CLAUDE.md §6.1). Khi có phụ lục sẽ thay thế. |
+
+### Quy ước nhãn nguồn dùng xuyên suốt Bước 2–5
+
+| Nhãn | Ý nghĩa |
+|---|---|
+| *(không nhãn)* | Nội dung có trong `HSBG.docx`, giữ nguyên hoặc chỉ sửa chính tả/trình bày |
+| `[CẬP NHẬT 2026]` | Nội dung bản gốc bị thay số liệu/tên hạng theo văn bản pháp luật mới, có ghi căn cứ |
+| `[BIÊN SOẠN MỚI]` | Nội dung **không có** trong bản gốc, do soạn thêm theo quyết định H.2 |
+| `[CẦN KIỂM CHỨNG]` | Số liệu chưa đối chiếu được toàn văn văn bản gốc — **không được dùng để giảng dạy khi chưa xác minh** |
+| `[CẦN RÀ SOÁT]` | Nội dung bản gốc có dấu hiệu mâu thuẫn, đã giữ hoặc đã sửa theo H.3, cần giáo viên xác nhận |
+
+---
+
+> ## ▶️ BƯỚC 1 HOÀN TẤT — ĐANG CHẠY BƯỚC 2
 >
-> Theo CLAUDE.md §5 Bước 1, tôi **dừng tại đây** và chưa viết bất kỳ nội dung mới nào.
->
-> **Xin bạn phản hồi 5 mục ở Phần C** (C.1 → C.5). Sau khi có ý kiến của bạn, tôi sẽ chạy tiếp Bước 2.
+> Bảng đối chiếu đã được duyệt ngày 15/09/2026. Các bản nháp Bước 2 nằm trong thư mục `drafts/`.
